@@ -19,6 +19,10 @@
 %\usepackage{helvet}
 %\usepackage{bookman}
 \usepackage{palatino}
+%\usepackage{fourier}
+%\usepackage{avant}
+
+\input{math_commands.tex}
 
 \newcommand{\captionfont}{\footnotesize}
 
@@ -93,15 +97,15 @@
   }
   % Eye Catcher
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[height=11.0em]{img/tokyotech_logo}
+    \includegraphics[height=10.0em]{img/tokyotech_logo}
   }
   % Title
-  {\bf \textsc{Learning GNNs with Noisy Labels} }
+  {\bf \Huge \textsc{Learning GNNs with Noisy Labels} }
   % Authors
-  {\textsc{ Hoang NT, Jun Jin Choong, Tsuyoshi Murata \\ Tokyo Institute of Technology}}
+  {\vspace{0.5em} \textsc{ Hoang NT, Jun Jin Choong, Tsuyoshi Murata \\ \vspace{0.2em} Tokyo Institute of Technology}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[height=7.0em]{img/lld_logo}
+    \includegraphics[height=8.0em]{img/lld_logo}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,8 +135,8 @@ noise-tolerant approach for the graph classification task.
 Our experiments show that test accuracy can be improved 
 under the artificial symmetric noisy setting.
 
-
-
+\vspace{1em}
+\includegraphics[width=0.8\linewidth]{img/MUTAG_noisy_training}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,49 +158,36 @@ under the artificial symmetric noisy setting.
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Bayesian Inference Model}{name=method,column=0,below=problem, above=references}{
+  \headerbox{Graph Classification Model}{name=method,column=0,below=problem, above=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We abbreviate the probability that a map cell $m$ is occupied $p(m=1|x_*)$ as $p(m|x_*)$. As in standard occupancy grid mapping, the cell $m$ is occupied with probability $p(m|x_*)$ and free with probability $1-p(m|x_*)$. That is, $m \sim \mathit{Ber}(\theta)$, with parameter $\theta = p(m | x_*)$. We seek to estimate the parameter $\theta$. To do so, we use the  nonparametric Bayesian inference model for exponential families in \cite{vegabrown}. With $\theta \sim \mathit{Beta}(\alpha, \beta)$, the predicted mean and variance of $\theta$ are as follows:
-\begin{align}
-	\mathbf{E}[\theta] = \frac{\alpha}{\alpha + \beta}
-\end{align}
-\begin{align}
-	\mathbf{Var}[\theta] = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}
-\end{align}
-where $\alpha$ and $\beta$ are hyperparameters. At each time step we can apply exact recursive updates to the hyperparameters
-\begin{align}
-	\alpha_t &= \alpha_{t-1} + \bar{y} \label{eq:update-a}\\
-	\beta_t &= \beta_{t-1} + \bar{k} - \bar{y} \label{eq:update-b}
-\end{align}
-in which $\bar{k}$ and $\bar{y}$ are the results of the following kernel computations:
-\begin{align}
-	\bar{y} &= \sum_{i=1}^N k(x_i, x_*)y_i \\
-	\bar{k} &= \sum_{i=1}^N k(x_i, x_*). 
-\end{align}
+The most modern approach to the graph classification problem is to learn 
+a graph-level feature vector. There are several ways to 
+learn. \emph{GCN} approach 
+by approximates the Fourier transformation of 
+signals (feature vectors) on graphs to 
+learn representations of a special vertex to use as the representative 
+for the graph. Similar approaches 
+can be founded in the context of compressive sensing. 
+To overcome the disadvantages of GCN-like methods 
+such as memory consumption and scalability, the nonlinear neural message
+passing method is proposed. 
+\emph{GraphSAGE} proposes an algorithm 
+consists of 
+two operations: \texttt{aggregate} and \texttt{pooling}. 
+\texttt{aggregate} step computes the information 
+on each vertex using the local neighborhood, then \texttt{pooling} 
+computes the output for each vertex.
+These vector outputs are then used in classification at 
+vertex-level or graph-level. More recently, 
+\emph{GIN} model generalizes the concept in \emph{GraphSAGE} to 
+propose a unified
+message-passing framework for graph classification.
 
-The quantities $\alpha_0$ and $\beta_0$ represent prior pseudo-counts of the positive (occupied) and negative (free) classes respectively.
-
-We also take advantage of variance predictions in a similar fashion to previous work \cite{jwang}. We use the following model of state for cells in the environment
-\begin{align}
-	\text{state} = \begin{cases} \text{free,} & \text{if }p < p_{free}, \sigma^2 < \sigma^2_{th} \\
-	\text{occupied,} & \text{if } p > p_{occ}, \sigma^2 < \sigma^2_{th} \\
-	\text{unknown,} & \text{otherwise} \end{cases}
-\end{align}
-where $p = \mathbf{E}[\theta]$, and quantities $p_{free}$ and $p_{occ}$ are thresholds on the occupancy probability of cells deemed "free," and "occupied," respectively. The variance $\sigma^2$, is $\mathbf{Var}[\theta]$, which is thresholded by $\sigma^2_{th}$ to filter out predictions with high variance as "unknown."
-
-We opt to use the sparse kernel presented in \cite{sparsekernel} to enable exact updates in equations \ref{eq:update-a} and \ref{eq:update-b}.
-\begin{multline}
-    k(x,x') = \\ \begin{cases}
-        \sigma_0\big[\frac{2 + \cos(2\pi\frac{d}{l})}{3}(1 - \frac{d}{l}) + \frac{1}{2\pi}\sin(2\pi\frac{d}{l})\big] & \text{if } d < l\\
-        0 & \text{if } d\geq l\\ \label{eq:sparse-kern}
-        \end{cases}
-\end{multline}
-where $\sigma_0 > 0$ is a constant parameter of the kernel, $l > 0$ is the scale, and $d$ is the distance between $x$ and $x'$. 
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Test Data Octrees}{name=results,column=1,span=2,row=0}{
+\headerbox{Loss Correction Schemes}{name=results,column=1,span=2,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{multicols}{2}

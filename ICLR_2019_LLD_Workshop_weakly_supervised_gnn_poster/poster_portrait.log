@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  3 MAY 2019 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  3 MAY 2019 16:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -489,6 +489,9 @@ Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \mc@col@check@num=\count144
 ) (/usr/share/texmf-dist/tex/latex/psnfss/palatino.sty
 Package: palatino 2005/04/12 PSNFSS-v9.2a (SPQR) 
+) (/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/math_commands.tex
+LaTeX Font Info:    Overwriting math alphabet `\mathsfit' in version `bold'
+(Font)                  T1/phv/m/sl --> T1/phv/bx/n on input line 314.
 )
 
 LaTeX Warning: Unused global option(s):
@@ -497,19 +500,19 @@ LaTeX Warning: Unused global option(s):
 (/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.aux)
 \openout1 = `poster_portrait.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 52.
  (/usr/share/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -600,226 +603,243 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 <img/tokyotech_logo.pdf, id=29, 87.53156pt x 81.83098pt>
 File: img/tokyotech_logo.pdf Graphic file (type pdf)
 <use img/tokyotech_logo.pdf>
-Package pdftex.def Info: img/tokyotech_logo.pdf  used on input line 105.
-(pdftex.def)             Requested size: 117.66562pt x 110.0pt.
+Package pdftex.def Info: img/tokyotech_logo.pdf  used on input line 109.
+(pdftex.def)             Requested size: 106.96863pt x 100.0pt.
 <img/lld_logo.pdf, id=30, 314.44833pt x 155.13292pt>
 File: img/lld_logo.pdf Graphic file (type pdf)
 <use img/lld_logo.pdf>
-Package pdftex.def Info: img/lld_logo.pdf  used on input line 105.
-(pdftex.def)             Requested size: 141.89388pt x 70.0pt.
+Package pdftex.def Info: img/lld_logo.pdf  used on input line 109.
+(pdftex.def)             Requested size: 162.16101pt x 80.0pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 105.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 109.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 105.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 109.
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 105.
-LaTeX Font Info:    Try loading font information for U+msa on input line 105.
+(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 109.
+LaTeX Font Info:    Try loading font information for U+msa on input line 109.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 105.
+LaTeX Font Info:    Try loading font information for U+msb on input line 109.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+<img/MUTAG_noisy_training.pdf, id=31, 590.70877pt x 406.24962pt>
+File: img/MUTAG_noisy_training.pdf Graphic file (type pdf)
+<use img/MUTAG_noisy_training.pdf>
+Package pdftex.def Info: img/MUTAG_noisy_training.pdf  used on input line 140.
+(pdftex.def)             Requested size: 196.43477pt x 135.09178pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 136.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 136.
+(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 140.
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 1052) in paragraph at lines 154--154
+Underfull \hbox (badness 1052) in paragraph at lines 158--158
 \T1/ppl/m/n/8 Bayesian in-fer-ence on mul-ti-vari-ate ex-po-nen-tial fam-i-lies," \T1/ppl/m/it/8 Ad-
  []
 
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 187.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--219
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--219
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--219
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--219
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
 
  []
 
-<img/grid_octrees_predict.pdf, id=33, 342.954pt x 339.66899pt>
+<img/grid_octrees_predict.pdf, id=34, 342.954pt x 339.66899pt>
 File: img/grid_octrees_predict.pdf Graphic file (type pdf)
 <use img/grid_octrees_predict.pdf>
-Package pdftex.def Info: img/grid_octrees_predict.pdf  used on input line 219.
+Package pdftex.def Info: img/grid_octrees_predict.pdf  used on input line 210.
 (pdftex.def)             Requested size: 223.23842pt x 221.09837pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
-<img/sim_structured.png, id=34, 1568.86125pt x 969.6225pt>
+<img/sim_structured.png, id=35, 1568.86125pt x 969.6225pt>
 File: img/sim_structured.png Graphic file (type png)
 <use img/sim_structured.png>
-Package pdftex.def Info: img/sim_structured.png  used on input line 312.
+Package pdftex.def Info: img/sim_structured.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 72.64456pt.
-<img/sim_structured_raw.png, id=36, 955.31906pt x 691.08188pt>
+<img/sim_structured_raw.png, id=37, 955.31906pt x 691.08188pt>
 File: img/sim_structured_raw.png Graphic file (type png)
 <use img/sim_structured_raw.png>
-Package pdftex.def Info: img/sim_structured_raw.png  used on input line 312.
+Package pdftex.def Info: img/sim_structured_raw.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 85.0247pt.
-<img/sim_structured_octomap.png, id=37, 955.31906pt x 691.08188pt>
+<img/sim_structured_octomap.png, id=38, 955.31906pt x 691.08188pt>
 File: img/sim_structured_octomap.png Graphic file (type png)
 <use img/sim_structured_octomap.png>
-Package pdftex.def Info: img/sim_structured_octomap.png  used on input line 312.
+Package pdftex.def Info: img/sim_structured_octomap.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 85.0247pt.
-<img/sim_structured_bgk.png, id=38, 698.61pt x 515.67656pt>
+<img/sim_structured_bgk.png, id=39, 698.61pt x 515.67656pt>
 File: img/sim_structured_bgk.png Graphic file (type png)
 <use img/sim_structured_bgk.png>
-Package pdftex.def Info: img/sim_structured_bgk.png  used on input line 312.
+Package pdftex.def Info: img/sim_structured_bgk.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 86.76683pt.
-<img/sim_unstructured.jpg, id=39, 1568.86125pt x 969.6225pt>
+<img/sim_unstructured.jpg, id=40, 1568.86125pt x 969.6225pt>
 File: img/sim_unstructured.jpg Graphic file (type jpg)
 <use img/sim_unstructured.jpg>
-Package pdftex.def Info: img/sim_unstructured.jpg  used on input line 312.
+Package pdftex.def Info: img/sim_unstructured.jpg  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 72.64456pt.
-<img/sim_unstructured_raw.png, id=40, 955.31906pt x 691.08188pt>
+<img/sim_unstructured_raw.png, id=41, 955.31906pt x 691.08188pt>
 File: img/sim_unstructured_raw.png Graphic file (type png)
 <use img/sim_unstructured_raw.png>
-Package pdftex.def Info: img/sim_unstructured_raw.png  used on input line 312.
+Package pdftex.def Info: img/sim_unstructured_raw.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 85.0247pt.
-<img/octomap_sim_unstructured.png, id=41, 694.84593pt x 514.92375pt>
+<img/octomap_sim_unstructured.png, id=42, 694.84593pt x 514.92375pt>
 File: img/octomap_sim_unstructured.png Graphic file (type png)
 <use img/octomap_sim_unstructured.png>
-Package pdftex.def Info: img/octomap_sim_unstructured.png  used on input line 312.
+Package pdftex.def Info: img/octomap_sim_unstructured.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 87.10373pt.
-<img/sim_unstructured_bgk.png, id=42, 632.3625pt x 514.92375pt>
+<img/sim_unstructured_bgk.png, id=43, 632.3625pt x 514.92375pt>
 File: img/sim_unstructured_bgk.png Graphic file (type png)
 <use img/sim_unstructured_bgk.png>
-Package pdftex.def Info: img/sim_unstructured_bgk.png  used on input line 312.
+Package pdftex.def Info: img/sim_unstructured_bgk.png  used on input line 303.
 (pdftex.def)             Requested size: 117.54738pt x 95.7151pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
-<img/fr_corridor_raw.png, id=43, 874.01532pt x 514.92375pt>
+<img/fr_corridor_raw.png, id=44, 874.01532pt x 514.92375pt>
 File: img/fr_corridor_raw.png Graphic file (type png)
 <use img/fr_corridor_raw.png>
-Package pdftex.def Info: img/fr_corridor_raw.png  used on input line 312.
+Package pdftex.def Info: img/fr_corridor_raw.png  used on input line 303.
 (pdftex.def)             Requested size: 153.32707pt x 90.333pt.
-<img/fr_corridor_octomap.png, id=44, 903.375pt x 514.92375pt>
+<img/fr_corridor_octomap.png, id=45, 903.375pt x 514.92375pt>
 File: img/fr_corridor_octomap.png Graphic file (type png)
 <use img/fr_corridor_octomap.png>
-Package pdftex.def Info: img/fr_corridor_octomap.png  used on input line 312.
+Package pdftex.def Info: img/fr_corridor_octomap.png  used on input line 303.
 (pdftex.def)             Requested size: 153.32707pt x 87.39444pt.
-<img/fr_corri2.png, id=45, 694.84593pt x 514.92375pt>
+<img/fr_corri2.png, id=46, 694.84593pt x 514.92375pt>
 File: img/fr_corri2.png Graphic file (type png)
 <use img/fr_corri2.png>
-Package pdftex.def Info: img/fr_corri2.png  used on input line 312.
+Package pdftex.def Info: img/fr_corri2.png  used on input line 303.
 (pdftex.def)             Requested size: 153.32707pt x 113.62143pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
-<img/long_term_gbk_1.png, id=46, 659.46375pt x 514.92375pt>
+<img/long_term_gbk_1.png, id=47, 659.46375pt x 514.92375pt>
 File: img/long_term_gbk_1.png Graphic file (type png)
 <use img/long_term_gbk_1.png>
-Package pdftex.def Info: img/long_term_gbk_1.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gbk_1.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gbk_15.png, id=47, 659.46375pt x 514.92375pt>
+<img/long_term_gbk_15.png, id=48, 659.46375pt x 514.92375pt>
 File: img/long_term_gbk_15.png Graphic file (type png)
 <use img/long_term_gbk_15.png>
-Package pdftex.def Info: img/long_term_gbk_15.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gbk_15.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gbk_30.png, id=48, 659.46375pt x 514.92375pt>
+<img/long_term_gbk_30.png, id=49, 659.46375pt x 514.92375pt>
 File: img/long_term_gbk_30.png Graphic file (type png)
 <use img/long_term_gbk_30.png>
-Package pdftex.def Info: img/long_term_gbk_30.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gbk_30.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gbk_60.png, id=49, 659.46375pt x 514.92375pt>
+<img/long_term_gbk_60.png, id=50, 659.46375pt x 514.92375pt>
 File: img/long_term_gbk_60.png Graphic file (type png)
 <use img/long_term_gbk_60.png>
-Package pdftex.def Info: img/long_term_gbk_60.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gbk_60.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
 
-Overfull \hbox (0.85223pt too wide) in paragraph at lines 312--312
+Overfull \hbox (0.85223pt too wide) in paragraph at lines 303--303
 [][] [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
-<img/long_term_gpoctomap_1.png, id=50, 659.46375pt x 514.92375pt>
+<img/long_term_gpoctomap_1.png, id=51, 659.46375pt x 514.92375pt>
 File: img/long_term_gpoctomap_1.png Graphic file (type png)
 <use img/long_term_gpoctomap_1.png>
-Package pdftex.def Info: img/long_term_gpoctomap_1.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gpoctomap_1.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gpoctomap_15.png, id=51, 659.46375pt x 514.92375pt>
+<img/long_term_gpoctomap_15.png, id=52, 659.46375pt x 514.92375pt>
 File: img/long_term_gpoctomap_15.png Graphic file (type png)
 <use img/long_term_gpoctomap_15.png>
-Package pdftex.def Info: img/long_term_gpoctomap_15.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gpoctomap_15.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gpoctomap_30.png, id=52, 659.46375pt x 514.92375pt>
+<img/long_term_gpoctomap_30.png, id=53, 659.46375pt x 514.92375pt>
 File: img/long_term_gpoctomap_30.png Graphic file (type png)
 <use img/long_term_gpoctomap_30.png>
-Package pdftex.def Info: img/long_term_gpoctomap_30.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gpoctomap_30.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
-<img/long_term_gpoctomap_60.png, id=53, 659.46375pt x 514.92375pt>
+<img/long_term_gpoctomap_60.png, id=54, 659.46375pt x 514.92375pt>
 File: img/long_term_gpoctomap_60.png Graphic file (type png)
 <use img/long_term_gpoctomap_60.png>
-Package pdftex.def Info: img/long_term_gpoctomap_60.png  used on input line 312.
+Package pdftex.def Info: img/long_term_gpoctomap_60.png  used on input line 303.
 (pdftex.def)             Requested size: 57.04913pt x 44.54185pt.
 
-Overfull \hbox (0.85223pt too wide) in paragraph at lines 312--312
+Overfull \hbox (0.85223pt too wide) in paragraph at lines 303--303
 [][] [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 303--303
 
  []
 
-<img/sim_structured_roc.pdf, id=54, 371.30057pt x 361.42654pt>
+<img/sim_structured_roc.pdf, id=55, 371.30057pt x 361.42654pt>
 File: img/sim_structured_roc.pdf Graphic file (type pdf)
 <use img/sim_structured_roc.pdf>
-Package pdftex.def Info: img/sim_structured_roc.pdf  used on input line 312.
+Package pdftex.def Info: img/sim_structured_roc.pdf  used on input line 303.
 (pdftex.def)             Requested size: 119.36047pt x 116.18277pt.
-<img/sim_unstructured_roc.pdf, id=55, 355.25626pt x 361.25403pt>
+<img/sim_unstructured_roc.pdf, id=56, 355.25626pt x 361.25403pt>
 File: img/sim_unstructured_roc.pdf Graphic file (type pdf)
 <use img/sim_unstructured_roc.pdf>
-Package pdftex.def Info: img/sim_unstructured_roc.pdf  used on input line 312.
+Package pdftex.def Info: img/sim_unstructured_roc.pdf  used on input line 303.
 (pdftex.def)             Requested size: 114.76834pt x 116.7061pt.
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 109--306
+[][] [] 
+ []
+
 [2
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/tokyotech_logo.pdf> </home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/lld_logo.pdf
 
 pdfTeX warning: pdflatex (file /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/lld_logo.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> </home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/MUTAG_noisy_training.pdf
+
+pdfTeX warning: pdflatex (file /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/MUTAG_noisy_training.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 > </home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/grid_octrees_predict.pdf
 
 pdfTeX warning: pdflatex (file /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/grid_octrees_predict.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -831,18 +851,18 @@ pdfTeX warning: pdflatex (file /home/gear/Gdrive/03.Papers/03.Mine/published_pap
 pdfTeX warning: pdflatex (file /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/img/sim_unstructured_roc.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.aux) ) 
 Here is how much of TeX's memory you used:
- 15897 strings out of 492616
- 322925 string characters out of 6135178
- 411608 words of memory out of 5000000
- 19419 multiletter control sequences out of 15000+600000
- 31273 words of font info for 60 fonts, out of 8000000 for 9000
+ 16357 strings out of 492616
+ 325158 string characters out of 6135178
+ 402465 words of memory out of 5000000
+ 19872 multiletter control sequences out of 15000+600000
+ 28988 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,22n,76p,773b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.pdf (1 page, 3871048 bytes).
+ 62i,10n,76p,773b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.pdf (1 page, 3817984 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 235 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 240 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1029,7 +1029,7 @@
   %% Poster Background%
   \baposterPosterDrawBackground{bgColorOne}{bgColorTwo}%
   %% Poster header/title
-  \hspace{-1.5em}%
+  \hspace{-1em}%
   \begin{tikzpicture}[inner sep=0pt,outer sep=0pt,line width=0.05em]%
     \useasboundingbox (0em,0em) rectangle(\textwidth,\textheight);%
     \path[shape=coordinate]%
