@@ -219,9 +219,13 @@ process. To estimate $\mC$ from the noisy data (corrupted by some unknown
 noise process $\mN$), we propose two estimation schemes:
 
 \begin{enumerate}
-  \item Assume the neural network can exactly model the noisy data, hence the final softmax output is used to fill matrix $\mC$. For instance, out of all sample classified as class ``A'' in our training data, we find the one that gives the weakest response for class ``A'', and use its softmax output as the values for row ``A'' in matrix $\mC$.
-  \item two
+  \item \textbf{D-GNN-C} Assumes the neural network can exactly model the noisy data, hence the final softmax output is used to fill matrix $\mC$. For instance, out of all sample classified as class ``A'' in our training data, we find the one that gives the weakest response for class ``A'', and use its softmax output as the values for row ``A'' in matrix $\mC$.
+  \item \textbf{D-GNN-A} Uses a validation set, which does not contain noisy labels, to compute the entries for matrix $\mC$.
 \end{enumerate}
+
+\noindent
+We also propose to use directly the noise matrix $\mN$ as an oracle for comparion (\textbf{D-GNN-E}).
+
 \end{multicols}
 
 \hspace{5em}
@@ -249,7 +253,7 @@ NCI1     (2) & 0.8  & 0.99   & 0.76  & 0.74 & 0.24\\
 
 \hfill \\
 
-{ 
+{  
 \vspace{-1.5em}
 \begin{tabular}{l|cccc}
 \bf Dataset & \#graphs & \#classes & \#vertices \\
@@ -268,18 +272,31 @@ NCI1     & 4110 & 2 & 29.8  \\
 
 \columnbreak
 
-In this experiment, we simulate a robot keeping station, repeatedly scanning the same area. 
-
-\textbf{Top}: Our method, BGKOctoMap updated with information from 1, 15, 30, and 60 scans (\textbf{left} to \textbf{right}) containing the same data.
-
-\textbf{Bottom}: The result after applying the online Gaussian process occupancy mapping method in \cite{jwang} to the same data.
-
-Qualitatively, our method (\textbf{top}) is more stable for long-term mapping scenarios with many repeat observations than the previous method (\textbf{bottom}) in which the occupied voxels tend to grow continuously with repeat observations.
-
+\vspace*{0.5em}
+\noindent
+We test our framework on the set of well-studied 9 datasets for the graph 
+classification task: 4 bioinformatics datasets (MUTAG, PTC, NCI1, PROTEINS),
+and 5 social network datasets (COLLAB, IMDB-BINARY, IMDB-MULTI, REDDIT-BINARY, REDDIT-MULTI5K). We follow the preprocessing suggested by \cite{xu2018how} 
+to use one-hot encoding as vertex degrees for social networks (except REDDIT datasets). Since these datasets have exact 
+label for each graph, we introduce symmetric label noise artificially.
 \end{multicols}
 
+\noindent
+We compare our model with the original Graph Isomorphism Network (GIN) \cite{xu2018how}.
+The hyperparameters are fixed across all datasets as follow: \texttt{epochs=20}, 
+\texttt{num\_layers=5}, \texttt{num\_mlp\_layers=2}, \texttt{batch\_size=64}.
+Besides GIN, we consider GraphSAGE model \cite{hamilton2017inductive} under the same noisy 
+setting. We use the default setting for GraphSAGE.
 
-\hspace{-1.5em}
+\\
+
+\vspace{1em}
+\noindent
+In the table below, we fix the noise rate at 20\% for the experiments and report the mean accuracy after 10 fold cross validation run.  
+
+\vspace{1em}
+
+\hspace{-1em}
   \begin{tabular}{lccccccccccc}
                                  & MUTAG   & IMDB-M    & RDT-B   & RDT-M5K & COLLAB    & IMDB-B   & PROTEINS    & PTC         & NCI1 \\
     \hline \\
@@ -292,29 +309,47 @@ Qualitatively, our method (\textbf{top}) is more stable for long-term mapping sc
     D-GNN-E                      &  .7002  &  \bf.4633 & .5270   & .2022   &  \bf.6960 & \bf.7190 & \bf.6917    & \bf.5235       & \bf.6638 \\
   \end{tabular}
 
-\includegraphics[width=0.95\linewidth]{img/notgood}
+\vspace{1em}
 
-We also evaluated our method qualitatively on real data from the University of Freiburg, shown above. From \textbf{left} to \textbf{right} we have:
+\noindent
+The worst performance variance of our model is the conservative estimation model. Due to the 
+overestimation of softmax unit within the cross-entropy loss, the model's confidence 
+to all training data is close to $1.0$. Such overconfidence leads to wrong correction
+matrix estimation, which in turn leads to worse performance.
+In contrast to D-GNN-C, D-GNN-A and D-GNN-E have consistently outperformed the original
+model. Such improvement comes from the fact that the correction matrix $\mC$ is correctly 
+approximated.
+\vspace{1em}
 
-\textbf{1)} The raw range-sensor data from University of Freiburg Corridor FR-079
+\noindent
+\textbf{Future Work} Although we observed the denoising effect of our proposed
+model. It did not work particularly well under the conservative estimation 
+setting. Figure below demonstrate the original performance and the loss 
+correction performance for a range of symmetric noise. Our conservative model 
+fails to perform in these datasets, especially under low noise. 
 
-\textbf{2)} The map produced by standard OctoMap
+\hspace{-1em}\includegraphics[width=0.99\linewidth]{img/notgood}
 
-\textbf{3)} The map produced by BGKOctoMap
+\noindent
+We consider two improvements for our next model:\\
+\textbf{1)} Employ unsupervised learning to estimate the loss matrix $\mC$.\\
+\textbf{2)} Extend the framework to node classification, which is a more common task in social network analysis.\\
 
-\vspace{0.1em}
+\noindent
+The source code is available at: \texttt{github.com/gear/denoising-gnn}.\\
+
+\noindent
+\textbf{Acknowledgements} This work was supported by JSPS Grant-in-Aid for Scientific Research (B) (Grant Number 17H01785) 
+and JST CREST (Grant Number JPMJCR1687).
 
 \setlength{\columnsep}{0.1em}
 \vspace{0.1em}
 \begin{multicols}{2}
 
-\noindent
-The source code is available at: \texttt{github.com/gear/denoising-gnn}.
 
 \end{multicols}
 
 }
-
 
 \end{poster}
 

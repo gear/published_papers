@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  4 MAY 2019 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.2)  4 MAY 2019 14:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -683,10 +683,10 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:242: Misplaced alignment tab character &.
+/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:246: Misplaced alignment tab character &.
 <argument> ...ftarrow }(p(y|\rvh _\gG ), y_\gG ) &
                                                    = \mC ^{-1} \cdot \texttt...
-l.242 }
+l.246 }
        
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -695,10 +695,10 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:242: Undefined control sequence.
+/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:246: Undefined control sequence.
 <recently read> \norm 
                       
-l.242 }
+l.246 }
        
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -706,10 +706,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:242: Undefined control sequence.
+/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:246: Undefined control sequence.
 <recently read> \norm 
                       
-l.242 }
+l.246 }
        
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -721,28 +721,52 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--316
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
 
  []
 
 
-LaTeX Warning: Citation `jwang' on page 1 undefined on input line 316.
+LaTeX Warning: Citation `xu2018how' on page 1 undefined on input line 352.
+
+
+LaTeX Warning: Citation `xu2018how' on page 1 undefined on input line 352.
+
+
+LaTeX Warning: Citation `hamilton2017inductive' on page 1 undefined on input line 352.
+
+
+/home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.tex:352: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.352 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 <img/notgood.pdf, id=36, 557.08125pt x 158.09062pt>
 File: img/notgood.pdf Graphic file (type pdf)
 <use img/notgood.pdf>
-Package pdftex.def Info: img/notgood.pdf  used on input line 316.
-(pdftex.def)             Requested size: 485.52927pt x 137.78859pt.
+Package pdftex.def Info: img/notgood.pdf  used on input line 352.
+(pdftex.def)             Requested size: 505.97704pt x 143.5925pt.
 
-Overfull \hbox (57.63596pt too wide) in paragraph at lines 316--316
-\T1/ppl/m/n/10 The source code is avail-able at: \T1/pcr/m/n/10 github.com/gear/denoising-gnn\T1/ppl/m/n/10 . 
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+
  []
 
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 109--319
+Overfull \hbox (5.0pt too wide) in paragraph at lines 109--354
 [][] [] 
  []
 
@@ -774,13 +798,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  16267 strings out of 492616
  322263 string characters out of 6135178
- 411844 words of memory out of 5000000
+ 419889 words of memory out of 5000000
  19802 multiletter control sequences out of 15000+600000
  32169 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,22n,76p,522b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.pdf (1 page, 507825 bytes).
+Output written on /home/gear/Gdrive/03.Papers/03.Mine/published_papers/ICLR_2019_LLD_Workshop_weakly_supervised_gnn_poster/poster_portrait.pdf (1 page, 511724 bytes).
 PDF statistics:
  960 PDF objects out of 1000 (max. 8388607)
  637 compressed objects within 7 object streams
