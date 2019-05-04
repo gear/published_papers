@@ -245,6 +245,12 @@ NCI1     (2) & 0.8  & 0.99   & 0.76  & 0.74 & 0.24\\
   \headerbox{Experimental Results}{name=background model,column=1, span=2,below=results, above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{multicols}{2}
+
+\hfill \\
+
+{ 
+\vspace{-1.5em}
 \begin{tabular}{l|cccc}
 \bf Dataset & \#graphs & \#classes & \#vertices \\
 \hline \\
@@ -258,53 +264,6 @@ PROTEINS & 1113 & 2 & 39.1  \\
 PTC      & 344  & 2 & 25.5  \\  
 NCI1     & 4110 & 2 & 29.8  \\   
 \end{tabular}
-
-\includegraphics[width=0.9\linewidth]{img/notgood}
-
-We tested our method "Bayesian Generalized Kernel OctoMap" (BGKOctoMap) in simulated \textit{structured} (\textbf{top}) and \textit{unstructured} (\textbf{bottom}) environments. We show (colored by height), from \textbf{left} to \textbf{right}: 
-
-\textbf{1)} The Gazebo simulation model for the environment
-
-\textbf{2)} The simulated raw sensor data
-
-\textbf{3)} The map produced by standard OctoMap
-
-\textbf{4)} The result of applying our proposed method, BGKOctoMap.
-
-\vspace{0.1em}
-
-{
-\includegraphics[width=0.3\linewidth]{img/fr_corridor_octomap}
-\includegraphics[width=0.3\linewidth]{img/fr_corri2}
-}
-\\
-
-We also evaluated our method qualitatively on real data from the University of Freiburg, shown above. From \textbf{left} to \textbf{right} we have:
-
-\textbf{1)} The raw range-sensor data from University of Freiburg Corridor FR-079
-
-\textbf{2)} The map produced by standard OctoMap
-
-\textbf{3)} The map produced by BGKOctoMap
-
-\vspace{0.1em}
-\begin{multicols}{2}
-
-\hfill \\
-
-{ 
-	\includegraphics[width=0.23\linewidth]{img/long_term_gbk_1}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gbk_15}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gbk_30}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gbk_60}
-	}
-	
-	{
-	
-	\includegraphics[width=0.23\linewidth]{img/long_term_gpoctomap_1}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gpoctomap_15}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gpoctomap_30}
-	\includegraphics[width=0.23\linewidth]{img/long_term_gpoctomap_60}
 }
 
 \columnbreak
@@ -319,11 +278,38 @@ Qualitatively, our method (\textbf{top}) is more stable for long-term mapping sc
 
 \end{multicols}
 
+
+\hspace{-1.5em}
+  \begin{tabular}{lccccccccccc}
+                                 & MUTAG   & IMDB-M    & RDT-B   & RDT-M5K & COLLAB    & IMDB-B   & PROTEINS    & PTC         & NCI1 \\
+    \hline \\
+    GIN                          & .7327   & .4476     & .6695   & .3677   & .6544     & .6573    & .6257       & .4824       & .6472 \\
+    GraphSAGE                    & .7072   & .4373     &   -     & -       & -         & .6410    & .6583       & .4892       & .6053 
+    \vspace{0.5em}\\
+    \hline \vspace{-0.5em} \\
+    D-GNN-C                      &  .5727  &  \bf.4747 & .5005   & .2000   &  .5979    & \bf.6940 & \bf.6693    & \bf.5557       &  .6170 \\
+    D-GNN-A                      &  .7102  &  \bf.4505 & .5307   & .2000   &  \bf.6917 & \bf.7088 & \bf.6769    & \bf.5001       & .6405  \\
+    D-GNN-E                      &  .7002  &  \bf.4633 & .5270   & .2022   &  \bf.6960 & \bf.7190 & \bf.6917    & \bf.5235       & \bf.6638 \\
+  \end{tabular}
+
+\includegraphics[width=0.95\linewidth]{img/notgood}
+
+We also evaluated our method qualitatively on real data from the University of Freiburg, shown above. From \textbf{left} to \textbf{right} we have:
+
+\textbf{1)} The raw range-sensor data from University of Freiburg Corridor FR-079
+
+\textbf{2)} The map produced by standard OctoMap
+
+\textbf{3)} The map produced by BGKOctoMap
+
+\vspace{0.1em}
+
 \setlength{\columnsep}{0.1em}
 \vspace{0.1em}
 \begin{multicols}{2}
 
-We quantitatively evaluated the inference model in both simulated environments. On the \textbf{left} we show the receiver operating characteristic (ROC) curve of the classifier for the \textit{structured} map, and for the \textit{unstructured} map on the \textbf{right}. Each point on the curve shows the false-positive rate and true-positive rate at a particular threshold separating the positive class "occupied" and the negative class "unoccupied" (up and to Vjj
+\noindent
+The source code is available at: \texttt{github.com/gear/denoising-gnn}.
 
 \end{multicols}
 
