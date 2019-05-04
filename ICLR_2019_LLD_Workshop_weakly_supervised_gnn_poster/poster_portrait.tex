@@ -25,6 +25,7 @@
 \input{math_commands.tex}
 
 \newcommand{\captionfont}{\footnotesize}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Some math symbols used in the text
@@ -137,7 +138,7 @@ under the artificial symmetric noisy setting.
 
 \vspace{0.5em}
 \includegraphics[width=0.9\linewidth]{img/scheme}
-%\includegraphics[width=0.8\linewidth]{img/MUTAG_noisy_training}
+%\includegraphics[width=0.8\linewidth]{img/_noisy_training}
 \vspace{0.5em}
 \includegraphics[width=\linewidth]{img/MUTAG_noisy_training}
 }
@@ -213,7 +214,7 @@ surrogate loss with different estimators $C$ for the noise matrix $N$:
 $$\ell^{\leftarrow} = \mC^{-1} \cdot \ell(\hat{p}(y|\gG))$$
 \noindent
 Our final loss function for the GNN model is:
-$$\ell^{\leftarrow}(p(y|\rvh_\gG), y_\gG) & = \mC^{-1} \cdot  \texttt{CROSS\_ENTROPY} (p(y|\rvh_\gG), y_\gG)$$
+$$\ell^{\leftarrow}(p(y|\rvh_\gG), y_\gG) = \mC^{-1} \cdot  \texttt{CROSS\_ENTROPY} (p(y|\rvh_\gG), y_\gG)$$
 Such loss correction can be understood as going backward one step in the noisy
 process. To estimate $\mC$ from the noisy data (corrupted by some unknown 
 noise process $\mN$), we propose two estimation schemes:
@@ -227,6 +228,7 @@ noise process $\mN$), we propose two estimation schemes:
 \hspace{5em}
 \begin{tabular}{l|ccccc}
 \bf{Dataset} (\#classes) & diag($N$) & Avg. diag($\mC^{\text{c}}$) & $\norm{\mC^{\text{c}}-N}$ & Avg. diag($\mC^{\text{a}}$) & $\norm{\mC^{\text{a}}-N}$ \\
+%\bf{Dataset} (\#classes) & diag($N$) & Avg. diag($\mC^{\text{c}}$) & & & \\
 \hline \\
 IMDB-B   (2) & 0.8  & 0.99   & 0.76  & 0.77 & 0.12\\
 IMDB-M   (3) & 0.8  & 0.99   & 1.14  & 0.85 & 0.30\\
@@ -239,6 +241,7 @@ PTC      (2) & 0.8  & 0.99   & 0.76  & 0.63 & 0.68\\
 NCI1     (2) & 0.8  & 0.99   & 0.76  & 0.74 & 0.24\\
 \end{tabular}
 \vspace{1em}
+
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
