@@ -143,35 +143,23 @@ under the artificial symmetric noisy setting.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Short References}{name=references,column=0,above=bottom}{
+\headerbox{Short References}{name=references,column=0,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \smaller
     \bibliographystyle{ieee}
     \renewcommand{\section}[2]{\vskip 0.05em}
-      \begin{thebibliography}{1}\itemsep=-0.01em
+    \begin{thebibliography}{1}\itemsep=-0.01em
       \setlength{\baselineskip}{0.4em}
 
-\bibitem{patrini2017making} Giorgio Patrini, Alessandro Rozza, 
-Aditya Krishna Menon, Richard Nock, and Lizhen Qu. "Making
-deep neural networks robust to label noise: A loss correction approach,"
-\textit{IEEE Conference on Computer Vision and Pattern Recognition}, pp.
-1944–1952, 2017.
+      \bibitem{patrini2017making} Giorgio Patrini, Alessandro Rozza, Aditya Krishna Menon, Richard Nock, and Lizhen Q. "Making deep neural networks robust to label noise: A loss correction approach," \textit{IEEE Conference on Computer Vision and Pattern Recognition}, pp.
+      1944–1952, 2017.
 
-\bibitem{xu2018how} Keyulu Xu, Weihua Hu, Jure Leskovec, and 
-Stefanie Jegelka. "How powerful are graph neural
-networks?," \textit{International Conference on Learning Representations}, 
-ICLR 2019.
+      \bibitem{xu2018how} Keyulu Xu, Weihua Hu, Jure Leskovec, and Stefanie Jegelka. "How powerful are graph neural networks?," \textit{International Conference on Learning Representations}, ICLR 2019.
 
-\bibitem{hamilton2017inductive} Will Hamilton, Zhitao Ying, and Jure Leskovec.
-"Inductive representation learning on large graphs,"
-\textit{Advances in Neural Information Processing Systems}, pp. 1024–1034, 2017.
+      \bibitem{hamilton2017inductive} Will Hamilton, Zhitao Ying, and Jure Leskovec. "Inductive representation learning on large graphs," \textit{Advances in Neural Information Processing Systems}, pp. 1024–1034, 2017.
 
-\bibitem{kipf2017semi} Thomas N. Kipf and Max Welling. "Semi-supervised
-classification with graph convolutional networks," \textit{In International
-Conference on Learning Representations}, ICLR 2017.
-
-      \end{thebibliography}
-   \vspace{0.05em}
+      \bibitem{kipf2017semi} Thomas N. Kipf and Max Welling. "Semi-supervised classification with graph convolutional networks," \textit{International Conference on Learning Representations}, ICLR 2017.
+   \end{thebibliography}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,7 +172,7 @@ setting, such model has two main steps:
 
 \begin{enumerate}
   \item Accumulate neighborhood information to each vertex $\vv$ and neural network layer $(k)$:
-
+\vspace{-0.5em}
 \begin{equation*}
   \begin{split}
 \rva^{(k)}_{v} & = \texttt{AGGREGATE}^{(k)} (\{\rvh^{(k-1)}_u: u \in \mathcal{N}(v)\}), \\
@@ -193,14 +181,23 @@ setting, such model has two main steps:
 \end{equation*}
 
   \item Employ a function to learn the overall representation of the graph, then the objective $\ell$ is optimized with standard backpropagation.
+  \vspace{-0.5em}
 \begin{equation*}
   \begin{split}
 \rvh_{\gG} & = \texttt{READOUT} (\{\rvh^{(K)}_v: v \in \gG\}), \\
 \ell(p(y|\rvh_\gG), y_\gG) & = \texttt{XENTROPY} (p(y|\rvh_\gG), y_\gG)
   \end{split}
 \end{equation*}
-
 \end{enumerate}
+
+\noindent
+$\rvh^{(k)}_v$: Feature vector of node $v$ at iteration $(k)$; 
+$\rvh_\gG$: Feature vector of whole graph; $y_\gG$: True label 
+of training graphs; $p(y|\rvh_\gG)$: A prediction model.
+   
+
+\hspace{-1em} \includegraphics[width=0.95\linewidth]{img/gnn}
+
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -209,39 +206,60 @@ setting, such model has two main steps:
 
 \begin{multicols}{2}
 
-To the right we show the core data structure involved in our approach to occupancy maps: the "test data octree" from \cite{jwang}, which allows us to prune our environment representation to a lower resolution.
-\newline
+\noindent
+We employ the loss correction technique from the line 
+of work in [3]. We propose to use the \emph{backward}
+surrogate loss with different estimators $C$ for the noise matrix $N$:
+$$\ell^{\leftarrow} = \mC^{-1} \cdot \ell(\hat{p}(y|\gG))$$
+\noindent
+Our final loss function for the GNN model is:
+$$\ell^{\leftarrow}(p(y|\rvh_\gG), y_\gG) & = \mC^{-1} \cdot  \texttt{CROSS\_ENTROPY} (p(y|\rvh_\gG), y_\gG)$$
+Such loss correction can be understood as going backward one step in the noisy
+process. To estimate $\mC$ from the noisy data (corrupted by some unknown 
+noise process $\mN$), we propose two estimation schemes:
 
-\textbf{Top-left}: Standard occupancy grid mapping. \\
-
-\textbf{Top-right}: Setup for prediction of the occupancy probability of all cells in block $3$. The extended block consists of all blocks within distance $l$ of block $3$ that contain sensor data or sampled free-space points. \\
-
-\textbf{Bottom-left}: For each block, the data from the corresponding extended block is aggregated and inference is performed. \\
-
-\textbf{Bottom-right}: Neighboring cells within a block with the same occupancy state are pruned.
-
-\includegraphics[width=0.95\linewidth]{img/grid_octrees_predict}
-
+\begin{enumerate}
+  \item Assume the neural network can exactly model the noisy data, hence the final softmax output is used to fill matrix $\mC$. For instance, out of all sample classified as class ``A'' in our training data, we find the one that gives the weakest response for class ``A'', and use its softmax output as the values for row ``A'' in matrix $\mC$.
+  \item two
+\end{enumerate}
 \end{multicols}
 
+\hspace{5em}
+\begin{tabular}{l|ccccc}
+\bf{Dataset} (\#classes) & diag($N$) & Avg. diag($\mC^{\text{c}}$) & $\norm{\mC^{\text{c}}-N}$ & Avg. diag($\mC^{\text{a}}$) & $\norm{\mC^{\text{a}}-N}$ \\
+\hline \\
+IMDB-B   (2) & 0.8  & 0.99   & 0.76  & 0.77 & 0.12\\
+IMDB-M   (3) & 0.8  & 0.99   & 1.14  & 0.85 & 0.30\\
+RDT-B    (2) & 0.8  & 0.99   & 0.76  & 0.75 & 0.20\\
+RDT-M5K  (5) & 0.8  & 0.99   & 1.90  & 0.81 & 0.10\\
+COLLAB   (3) & 0.8  & 0.99   & 1.14  & 0.75 & 0.30\\
+MUTAG    (2) & 0.8  & 0.99   & 0.76  & 0.74 & 0.24\\
+PROTEINS (2) & 0.8  & 0.99   & 0.76  & 0.78 & 0.08\\
+PTC      (2) & 0.8  & 0.99   & 0.76  & 0.63 & 0.68\\
+NCI1     (2) & 0.8  & 0.99   & 0.76  & 0.74 & 0.24\\
+\end{tabular}
+\vspace{1em}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Experimental Results}{name=background model,column=1, span=2,below=results, above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-{ 
-	\includegraphics[width=0.23\linewidth]{img/sim_structured}
-	\includegraphics[width=0.23\linewidth]{img/sim_structured_raw}
-	\includegraphics[width=0.23\linewidth]{img/sim_structured_octomap}
-	\includegraphics[width=0.23\linewidth]{img/sim_structured_bgk}
-	
-	\includegraphics[width=0.23\linewidth]{img/sim_unstructured}
-	\includegraphics[width=0.23\linewidth]{img/sim_unstructured_raw}
-	\includegraphics[width=0.23\linewidth]{img/octomap_sim_unstructured}
-	\includegraphics[width=0.23\linewidth]{img/sim_unstructured_bgk}
-}
-\\
+\begin{tabular}{l|cccc}
+\bf Dataset & \#graphs & \#classes & \#vertices \\
+\hline \\
+IMDB-B   & 1000 & 2 & 19.8  \\   
+IMDB-M   & 1500 & 3 & 13.0  \\ 
+RDT-B    & 2000 & 2 & 429.6 \\    
+RDT-M5K  & 5000 & 5 & 508.5 \\       
+COLLAB   & 5000 & 3 & 74.5  \\     
+MUTAG    & 188  & 2 & 17.9  \\    
+PROTEINS & 1113 & 2 & 39.1  \\       
+PTC      & 344  & 2 & 25.5  \\  
+NCI1     & 4110 & 2 & 29.8  \\   
+\end{tabular}
+
+\includegraphics[width=0.9\linewidth]{img/notgood}
 
 We tested our method "Bayesian Generalized Kernel OctoMap" (BGKOctoMap) in simulated \textit{structured} (\textbf{top}) and \textit{unstructured} (\textbf{bottom}) environments. We show (colored by height), from \textbf{left} to \textbf{right}: 
 
@@ -256,7 +274,6 @@ We tested our method "Bayesian Generalized Kernel OctoMap" (BGKOctoMap) in simul
 \vspace{0.1em}
 
 {
-\includegraphics[width=0.3\linewidth]{img/fr_corridor_raw}
 \includegraphics[width=0.3\linewidth]{img/fr_corridor_octomap}
 \includegraphics[width=0.3\linewidth]{img/fr_corri2}
 }
@@ -306,14 +323,7 @@ Qualitatively, our method (\textbf{top}) is more stable for long-term mapping sc
 \vspace{0.1em}
 \begin{multicols}{2}
 
-We quantitatively evaluated the inference model in both simulated environments. On the \textbf{left} we show the receiver operating characteristic (ROC) curve of the classifier for the \textit{structured} map, and for the \textit{unstructured} map on the \textbf{right}. Each point on the curve shows the false-positive rate and true-positive rate at a particular threshold separating the positive class "occupied" and the negative class "unoccupied" (up and to the left is better). The area under the curve measures the overall accuracy of the classifier. We compare our method to GPOctomap-NBCM-P presented in \cite{jwang} and standard OctoMap.
-\\
-
-
-{
-\includegraphics[width=0.468\linewidth]{img/sim_structured_roc}
-\includegraphics[width=0.45\linewidth]{img/sim_unstructured_roc} 
-}
+We quantitatively evaluated the inference model in both simulated environments. On the \textbf{left} we show the receiver operating characteristic (ROC) curve of the classifier for the \textit{structured} map, and for the \textit{unstructured} map on the \textbf{right}. Each point on the curve shows the false-positive rate and true-positive rate at a particular threshold separating the positive class "occupied" and the negative class "unoccupied" (up and to Vjj
 
 \end{multicols}
 
