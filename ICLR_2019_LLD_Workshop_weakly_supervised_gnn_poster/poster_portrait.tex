@@ -1,4 +1,4 @@
-\documentclass[portrait,final,archD,fontscale=0.477]{baposter}
+\documentclass[portrait,final,a0paper,fontscale=0.365]{baposter}
 % Currently set to 24" wide by 36" tall (archD).
 % See baposter.cls for info on changing paper dimensions
 
@@ -25,6 +25,7 @@
 \input{math_commands.tex}
 
 \newcommand{\captionfont}{\footnotesize}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Some math symbols used in the text
@@ -213,7 +214,7 @@ surrogate loss with different estimators $C$ for the noise matrix $N$:
 $$\ell^{\leftarrow} = \mC^{-1} \cdot \ell(\hat{p}(y|\gG))$$
 \noindent
 Our final loss function for the GNN model is:
-$$\ell^{\leftarrow}(p(y|\rvh_\gG), y_\gG) & = \mC^{-1} \cdot  \texttt{CROSS\_ENTROPY} (p(y|\rvh_\gG), y_\gG)$$
+$$\ell^{\leftarrow}(p(y|\rvh_\gG), y_\gG) = \mC^{-1} \cdot  \texttt{CROSS\_ENTROPY} (p(y|\rvh_\gG), y_\gG)$$
 Such loss correction can be understood as going backward one step in the noisy
 process. To estimate $\mC$ from the noisy data (corrupted by some unknown 
 noise process $\mN$), we propose two estimation schemes:
@@ -285,10 +286,9 @@ label for each graph, we introduce symmetric label noise artificially.
 We compare our model with the original Graph Isomorphism Network (GIN) \cite{xu2018how}.
 The hyperparameters are fixed across all datasets as follow: \texttt{epochs=20}, 
 \texttt{num\_layers=5}, \texttt{num\_mlp\_layers=2}, \texttt{batch\_size=64}.
-Besides GIN, we consider GraphSAGE model \cite{hamilton2017inductive} under the same noisy 
-setting. We use the default setting for GraphSAGE.
+Besides GIN, we consider GraphSAGE model \cite{hamilton2017inductive} under the same noisy setting. We use the default setting for GraphSAGE.
 
-\\
+%\\
 
 \vspace{1em}
 \noindent
@@ -342,12 +342,12 @@ The source code is available at: \texttt{github.com/gear/denoising-gnn}.\\
 \textbf{Acknowledgements} This work was supported by JSPS Grant-in-Aid for Scientific Research (B) (Grant Number 17H01785) 
 and JST CREST (Grant Number JPMJCR1687).
 
-\setlength{\columnsep}{0.1em}
-\vspace{0.1em}
-\begin{multicols}{2}
+%\setlength{\columnsep}{0.1em}
+%\vspace{0.1em}
+%\begin{multicols}{2}
 
 
-\end{multicols}
+%\end{multicols}
 
 }
 
