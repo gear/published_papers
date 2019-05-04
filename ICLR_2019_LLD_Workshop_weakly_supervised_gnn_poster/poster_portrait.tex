@@ -135,55 +135,72 @@ noise-tolerant approach for the graph classification task.
 Our experiments show that test accuracy can be improved 
 under the artificial symmetric noisy setting.
 
-\vspace{1em}
-\includegraphics[width=0.8\linewidth]{img/MUTAG_noisy_training}
+\vspace{0.5em}
+\includegraphics[width=0.9\linewidth]{img/scheme}
+%\includegraphics[width=0.8\linewidth]{img/MUTAG_noisy_training}
+\vspace{0.5em}
+\includegraphics[width=\linewidth]{img/MUTAG_noisy_training}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=references,column=0,above=bottom}{
+  \headerbox{Short References}{name=references,column=0,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \smaller
     \bibliographystyle{ieee}
     \renewcommand{\section}[2]{\vskip 0.05em}
       \begin{thebibliography}{1}\itemsep=-0.01em
       \setlength{\baselineskip}{0.4em}
-\bibitem{vegabrown} W.R. Vega-Brown, M. Doniec, and N.G. Roy, "Nonparametric Bayesian inference on multivariate exponential families," \textit{Advances in Neural Information Processing Systems}, pp. 2546-2554, 2014.
 
-\bibitem{sparsekernel} A. Melkumyan and F. Ramos, "A Sparse Covariance Function for Exact Gaussian Process Inference in Large Datasets," \textit{Proceedings of the International Joint Conferences on Artificial Intelligence Organization}, vol. 9, pp. 1936-1942, 2009.
+\bibitem{patrini2017making} Giorgio Patrini, Alessandro Rozza, 
+Aditya Krishna Menon, Richard Nock, and Lizhen Qu. "Making
+deep neural networks robust to label noise: A loss correction approach,"
+\textit{IEEE Conference on Computer Vision and Pattern Recognition}, pp.
+1944–1952, 2017.
 
-\bibitem{jwang} J. Wang and B. Englot, "Fast, Accurate Gaussian Process Occupancy Maps via Test-Data Octrees and Nested Bayesian Fusion," \textit{Proceedings of the IEEE International Conference on Robotics and Automation}, pp. 1003-1010, May 2016.
+\bibitem{xu2018how} Keyulu Xu, Weihua Hu, Jure Leskovec, and 
+Stefanie Jegelka. "How powerful are graph neural
+networks?," \textit{International Conference on Learning Representations}, 
+ICLR 2019.
+
+\bibitem{hamilton2017inductive} Will Hamilton, Zhitao Ying, and Jure Leskovec.
+"Inductive representation learning on large graphs,"
+\textit{Advances in Neural Information Processing Systems}, pp. 1024–1034, 2017.
+
+\bibitem{kipf2017semi} Thomas N. Kipf and Max Welling. "Semi-supervised
+classification with graph convolutional networks," \textit{In International
+Conference on Learning Representations}, ICLR 2017.
 
       \end{thebibliography}
    \vspace{0.05em}
-  }
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Graph Classification Model}{name=method,column=0,below=problem, above=references}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+We use a nonlinear message passing model similar to \emph{GIN} \cite{xu2018how} 
+and \emph{GraphSAGE} \cite{hamilton2017inductive}. In the supervised learning
+setting, such model has two main steps:
 
-The most modern approach to the graph classification problem is to learn 
-a graph-level feature vector. There are several ways to 
-learn. \emph{GCN} approach 
-by approximates the Fourier transformation of 
-signals (feature vectors) on graphs to 
-learn representations of a special vertex to use as the representative 
-for the graph. Similar approaches 
-can be founded in the context of compressive sensing. 
-To overcome the disadvantages of GCN-like methods 
-such as memory consumption and scalability, the nonlinear neural message
-passing method is proposed. 
-\emph{GraphSAGE} proposes an algorithm 
-consists of 
-two operations: \texttt{aggregate} and \texttt{pooling}. 
-\texttt{aggregate} step computes the information 
-on each vertex using the local neighborhood, then \texttt{pooling} 
-computes the output for each vertex.
-These vector outputs are then used in classification at 
-vertex-level or graph-level. More recently, 
-\emph{GIN} model generalizes the concept in \emph{GraphSAGE} to 
-propose a unified
-message-passing framework for graph classification.
+\begin{enumerate}
+  \item Accumulate neighborhood information to each vertex $\vv$ and neural network layer $(k)$:
 
+\begin{equation*}
+  \begin{split}
+\rva^{(k)}_{v} & = \texttt{AGGREGATE}^{(k)} (\{\rvh^{(k-1)}_u: u \in \mathcal{N}(v)\}), \\
+\rvh^{(k)}_v & = \texttt{COMBINE}^{(k)} (\rvh_v^{(k-1)}, \rva_v^{(k)})
+  \end{split}
+\end{equation*}
+
+  \item Employ a function to learn the overall representation of the graph, then the objective $\ell$ is optimized with standard backpropagation.
+\begin{equation*}
+  \begin{split}
+\rvh_{\gG} & = \texttt{READOUT} (\{\rvh^{(K)}_v: v \in \gG\}), \\
+\ell(p(y|\rvh_\gG), y_\gG) & = \texttt{XENTROPY} (p(y|\rvh_\gG), y_\gG)
+  \end{split}
+\end{equation*}
+
+\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,7 +220,7 @@ To the right we show the core data structure involved in our approach to occupan
 
 \textbf{Bottom-right}: Neighboring cells within a block with the same occupancy state are pruned.
 
-\includegraphics[width=0.9\linewidth]{img/grid_octrees_predict}
+\includegraphics[width=0.95\linewidth]{img/grid_octrees_predict}
 
 \end{multicols}
 
